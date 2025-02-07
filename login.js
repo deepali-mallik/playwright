@@ -23,5 +23,4 @@ async function authentication(page) { // in this method I have written the entir
     await page.screenshot({ path: 'login.png'});
     console.log("Sucessfully logged in")
 
-    //comment
 }
