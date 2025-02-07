@@ -22,5 +22,6 @@ async function authentication(page) { // in this method I have written the entir
         console.error("The authentication was not successfull")
     await page.screenshot({ path: 'login.png'});
     console.log("Sucessfully logged in")
+    //changhes
 
 }
