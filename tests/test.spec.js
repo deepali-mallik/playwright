@@ -73,3 +73,5 @@ async function placeOrder(page) {
 
 //to run this suite we are going to use the engine that is automatically imported through this library using command npx playwright test
 //in the output we see a different output which is more verbose when it finishes of what tests were run, what passed and if any failed, which one?
+
+//comment added
