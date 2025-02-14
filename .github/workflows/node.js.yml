@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
-    - run: npm playwright install
+    - run: npm install playwright
     - run: npx playwright test
     env: 
         BITHEAP_USERNAME: playwright
