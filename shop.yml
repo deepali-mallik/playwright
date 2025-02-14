@@ -1,0 +1,48 @@
+config:
+  target: "https://www.bitheap.tech"
+  engines:
+    playwright: {}
+  processor: "./tests/flow.js"
+
+#This config section defines the general configuration of the test.
+#target → Defines the base URL of the website to be tested (https://www.bitheap.tech).
+#engines → Specifies that Artillery will use Playwright to execute tests.
+#processor → Points to an external JavaScript file (./tests/flow.js) that contains the Playwright test function.
+
+scenarios:
+  - engine: playwright
+    testFunction: "shopFlow"
+
+#This scenarios section defines the test scenario(s) that Artillery will execute.
+#engine: playwright → Specifies that the test will run using Playwright.
+#testFunction: "shopFlow" → Calls the shopFlow function from flow.js, which contains the test logic.
+# This means that during execution, Artillery will trigger the Playwright function shopFlow() (defined in flow.js) on multiple virtual users.
+
+phases:
+  - duration: 60
+    arrivalRate: 5
+    rampTo: 10
+    name: Warm up the API
+  - duration: 60
+    arrivalRate: 10
+    rampTo: 50
+    name: Ramp up to peak load 
+  - duration: 300
+    arrivalRate: 50
+    name: Sustained Peak load
+
+
+#This phases section defines how the test load is applied over time.
+
+#Each phase describes:
+#duration → How long the phase runs (in seconds).
+#arrivalRate → How many virtual users (VUs) start per second.
+#rampTo → The peak number of virtual users per second.
+
+#How the load test runs:
+#Warm-up phase (60s)
+#Starts with 5 users/sec, gradually increasing to 10 users/sec.
+#Ramp-up phase (60s)
+#Starts with 10 users/sec, gradually increasing to 50 users/sec.
+#Sustained peak load (300s = 5 min)
+#Runs 50 users/sec consistently for 5 minutes.
