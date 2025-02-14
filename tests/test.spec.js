@@ -1,12 +1,12 @@
 //our test file must be stored in a new folder inside root/project folder called "tests"
 //name of the file must be filename.spec.js - this is a prerequisite for the playwright engine in order to recognize the tests
 
-const { safari } = require('playwright');
+const { chromium } = require('playwright');
 const { test, expect } = require('@playwright/test'); //this import package imports the test object from newly installed package
 
 test.describe('My Test Suite', () => {  //this test describe method to define test suites in which we can create set of tests
     test('My Test Case', async ({ page }) => {   //test method to define an individual instance of a test
-        // const browser = await chromium.launch();
+        // const browser = await firefox.launch();
         // const page = await browser.newPage();
 
         await authentication(page); // same test cript that we used previously to automate the login process
