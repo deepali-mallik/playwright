@@ -10,6 +10,7 @@ export default defineConfig({
 })
 
 const config = {
+    timeout: 600000, //config to increase the timeout for visual regression testing using ai
     use: {
         headless: false //headless property to false to run the browser in UI or non-headless mode
     },

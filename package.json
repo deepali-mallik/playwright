@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@playwright/test": "^1.50.1",
+    "ai-visual-tester": "^1.0.2",
     "playwright": "^1.50.1"
   }
 }

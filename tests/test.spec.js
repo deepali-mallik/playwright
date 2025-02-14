@@ -3,6 +3,7 @@
 
 const { chromium } = require('playwright');
 const { test, expect } = require('@playwright/test'); //this import package imports the test object from newly installed package
+const { testPhoto } = require('ai-visual-tester');
 
 test.describe('My Test Suite', () => {  //this test describe method to define test suites in which we can create set of tests
     test('My Test Case', async ({ page }) => {   //test method to define an individual instance of a test
@@ -19,9 +20,11 @@ test.describe('My Test Suite', () => {  //this test describe method to define te
 
         console.log("Test Run Passed");
     });
-    // test('My test 2'){
 
-    // }
+    test.afterAll(async () => {
+        const response = await testPhoto("screenshor.png")
+        console.log(response)
+    })
 
     
 });
